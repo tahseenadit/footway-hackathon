@@ -65,7 +65,8 @@ Your task is to determine if a given shoe size is available by using ONLY the in
 Input shoe size: {{{shoeSize}}}
 
 Using ONLY the data returned by the 'getProductDataset' tool for the input shoe size:
-1. Determine if any products of the given shoe size are found in the retrieved data.
+1. Determine if any products of the given shoe size are found in the retrieved data. If there is any product with size in other metircs (i.e US, EU etc) that is equivalent to the given shoe size, that will also work.
+Analyze the length, width and heigh to determine availability if needed. Convert cm to mm or mm to cm if required to determine the availability.
 2. Set 'isAvailable' to true if one or more products are found, and false otherwise.
 3. For 'availabilityDetails':
     - If products are found, provide specific details about these available products based strictly on the retrieved data.
