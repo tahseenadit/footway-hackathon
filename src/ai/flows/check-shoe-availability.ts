@@ -70,9 +70,7 @@ Analyze the length, width and heigh to determine availability if needed. Convert
 2. Set 'isAvailable' to true if one or more products are found, and false otherwise.
 3. For 'availabilityDetails':
     - If products are found, provide specific details about these available products based strictly on the retrieved data.
-    - If no products are found (i.e., the retrieved data indicates no matches or is an empty set), set 'availabilityDetails' to the values from the below analysis:
-    If there is any product with size in other metircs (i.e US, EU etc) that is equivalent to the given shoe size, that will also work.
-Analyze the length, width and heigh to determine availability if needed. Convert cm to mm or mm to cm if required to determine the availability. If something is found, return the detailed result.If none is found, then return 'No shoes of this size are currently available.'
+    - If no products are found (i.e., the retrieved data indicates no matches or is an empty set), set 'availabilityDetails' to 'No shoes of this size are currently available.'
   `,
 });
 
