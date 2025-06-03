@@ -85,7 +85,7 @@ export default function ChatInput({ onSendMessage, isLoading }: ChatInputProps) 
         aria-label="Send message"
         className="bg-accent hover:bg-accent/90 text-accent-foreground"
       >
-        {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
+        {isLoading ? <span className="text-muted-foreground">...</span>: <Send className="h-5 w-5" />}
       </Button>
     </form>
   );
