@@ -125,7 +125,7 @@ export default function SoleMateChat() {
         if (recommendationResult) {
           addMessage({ sender: 'ai', textContent: `Checking availability for size ${recommendationResult.recommendedShoeSize}...` });
           try {
-            const availabilityInput: CheckShoeAvailabilityInput = { shoeSize: recommendationResult.recommendedShoeSize };
+            const availabilityInput: CheckShoeAvailabilityInput = { shoeSize: recommendationResult.recommendedShoeSize, shoeLength: recommendationResult.recommendedShoeLength };
             const availabilityData = await checkShoeAvailability(availabilityInput);
             addMessage({ sender: 'ai', type: 'availability_result', availabilityData });
           } catch (error) {
