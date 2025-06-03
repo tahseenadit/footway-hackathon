@@ -85,7 +85,7 @@ export default function SoleMateChat() {
 
     // --- Image Analysis Step ---
     if (currentImageDataUri) {
-      addMessage({ sender: 'ai', type: 'loading', textContent: 'Analyzing your image...' });
+      addMessage({ sender: 'ai', textContent: 'Analyzing your image...' });
       let analysisResult: AnalyzeFootImageOutput | null = null;
       try {
         const analysisInput: AnalyzeFootImageInput = { photoDataUri: currentImageDataUri };
@@ -101,7 +101,7 @@ export default function SoleMateChat() {
 
       // --- Size Recommendation Step ---
       if (analysisResult && currentImageDataUri) {
-        addMessage({ sender: 'ai', type: 'loading', textContent: 'Recommending shoe size...' });
+        addMessage({ sender: 'ai', textContent: 'Recommending shoe size...' });
         let recommendationResult: RecommendShoeSizeOutput | null = null;
         try {
           const recommendationInput: RecommendShoeSizeInput = {
@@ -123,7 +123,7 @@ export default function SoleMateChat() {
 
         // --- Availability Check Step ---
         if (recommendationResult) {
-          addMessage({ sender: 'ai', type: 'loading', textContent: `Checking availability for size ${recommendationResult.recommendedShoeSize}...` });
+          addMessage({ sender: 'ai', textContent: `Checking availability for size ${recommendationResult.recommendedShoeSize}...` });
           try {
             const availabilityInput: CheckShoeAvailabilityInput = { shoeSize: recommendationResult.recommendedShoeSize };
             const availabilityData = await checkShoeAvailability(availabilityInput);
