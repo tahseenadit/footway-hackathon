@@ -17,5 +17,6 @@ export type RecommendShoeSizeInput = z.infer<typeof RecommendShoeSizeInputSchema
 
 export const RecommendShoeSizeOutputSchema = z.object({
   recommendedShoeSize: z.string().describe('The recommended shoe size for the user.'),
+  recommendedShoeLength: z.string().describe('The length of the foot in mm.'),
 });
 export type RecommendShoeSizeOutput = z.infer<typeof RecommendShoeSizeOutputSchema>;
