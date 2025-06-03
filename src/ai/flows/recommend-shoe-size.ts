@@ -25,12 +25,11 @@ const prompt = ai.definePrompt({
   Also, check the availability of the recommended shoe size based on the knowledge you have.
 
   Foot Photo: {{media url=footPhotoDataUri}}
-  Foot Length: {{{footLength}}} cm
-  Foot Width: {{{footWidth}}} cm
-  Foot Height: {{{footHeight}}} cm
-  Known Shoe Size: {{knownShoeSize}}
+  Foot Length: {{{footLength}}} mm
+  Foot Width: {{{footWidth}}} mm
+  Foot Height: {{{footHeight}}} mm
 
-  Provide the size recommendation and availability status in the output.
+  Provide the size recommendation in the output.
   `,
 });
 
