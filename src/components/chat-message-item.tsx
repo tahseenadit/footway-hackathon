@@ -71,7 +71,6 @@ export default function ChatMessageItem({ message }: ChatMessageItemProps) {
               <CardTitle className="text-base font-semibold">Availability Check</CardTitle>
             </CardHeader>
             <CardContent className="p-3 text-sm">
-              <p>Status: {message.availabilityData?.isAvailable ? "Available" : "Not Available"}</p>
               <p>Details: {message.availabilityData?.availabilityDetails}</p>
             </CardContent>
           </Card>
