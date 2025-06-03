@@ -29,7 +29,7 @@ const prompt = ai.definePrompt({
   Foot Width: {{{footWidth}}} mm
   Foot Height: {{{footHeight}}} mm
 
-  Provide the size recommendation in US, EU and UK metrics in the output.
+  Provide the size recommendation in US, EU and UK metrics in the output. Also the foot lenth in mm.
   `,
 });
 
