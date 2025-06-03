@@ -12,8 +12,8 @@ export const AnalyzeFootImageInputSchema = z.object({
 export type AnalyzeFootImageInput = z.infer<typeof AnalyzeFootImageInputSchema>;
 
 export const AnalyzeFootImageOutputSchema = z.object({
-  length: z.number().describe('The length of the foot or shoe in centimeters.'),
-  width: z.number().describe('The width of the foot or shoe in centimeters.'),
-  height: z.number().describe('The height of the foot or shoe in centimeters.'),
+  length: z.number().describe('The length of the foot or shoe in milimeters.'),
+  width: z.number().describe('The width of the foot or shoe in milimeters.'),
+  height: z.number().describe('The height of the foot or shoe in milimeters.'),
 });
 export type AnalyzeFootImageOutput = z.infer<typeof AnalyzeFootImageOutputSchema>;
