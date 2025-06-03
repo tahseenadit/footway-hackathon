@@ -6,6 +6,4 @@ runConfig:
   # more instances in response to increased traffic.
   maxInstances: 1
 
-env:
-  - name: GOOGLE_API_KEY
-    value: "AIzaSyCD5tkNFhCKir1BRREhqmp9rmIX2qEhiyI"
+
