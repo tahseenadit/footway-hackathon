@@ -21,7 +21,7 @@ const prompt = ai.definePrompt({
   output: {schema: RecommendShoeSizeOutputSchema},
   prompt: `You are an AI assistant specializing in shoe size recommendations.
 
-  Analyze the provided foot dimensions and, if available, the user's current shoe size to recommend the ideal shoe size.
+  Analyze the provided foot dimensions and, if available, the user's current shoe size to recommend the ideal shoe size in US, EU, UK.
   Also, check the availability of the recommended shoe size based on the knowledge you have.
 
   Foot Photo: {{media url=footPhotoDataUri}}
@@ -29,7 +29,7 @@ const prompt = ai.definePrompt({
   Foot Width: {{{footWidth}}} mm
   Foot Height: {{{footHeight}}} mm
 
-  Provide the size recommendation in the output.
+  Provide the size recommendation in US, EU and UK metrics in the output.
   `,
 });
 
