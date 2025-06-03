@@ -12,7 +12,6 @@ import {z} from 'genkit'; // z is used for the internal tool schema
 import type { CheckShoeAvailabilityInput, CheckShoeAvailabilityOutput } from './check-shoe-availability.types';
 import { CheckShoeAvailabilityInputSchema, CheckShoeAvailabilityOutputSchema } from './check-shoe-availability.types';
 import { execSync } from 'child_process';
-import { z } from 'zod';
 
 export async function checkShoeAvailability(
   input: CheckShoeAvailabilityInput
