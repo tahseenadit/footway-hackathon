@@ -11,6 +11,8 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit'; // z is used for the internal tool schema
 import type { CheckShoeAvailabilityInput, CheckShoeAvailabilityOutput } from './check-shoe-availability.types';
 import { CheckShoeAvailabilityInputSchema, CheckShoeAvailabilityOutputSchema } from './check-shoe-availability.types';
+import { execSync } from 'child_process';
+import { z } from 'zod';
 
 export async function checkShoeAvailability(
   input: CheckShoeAvailabilityInput
@@ -18,7 +20,7 @@ export async function checkShoeAvailability(
   return checkShoeAvailabilityFlow(input);
 }
 
-const getProductDataset = ai.defineTool({
+/**const getProductDataset = ai.defineTool({
   name: 'getProductDataset',
   description: 'Retrieves product information for a specific shoe size from the product dataset.',
   inputSchema: z.object({
@@ -29,6 +31,25 @@ const getProductDataset = ai.defineTool({
 async (input) => {
   const response = await fetch('https://cdn.cillers.com/google-region-launch-datasets/fw_products_dataset.json');
   const products = await response.json() as any[];
+
+  const availableProducts = products.filter(product => product.size === input.shoeSize);
+  return JSON.stringify(availableProducts);
+});*/
+
+const getProductDataset = ai.defineTool({
+  name: 'getProductDataset',
+  description: 'Retrieves product information for a specific shoe size from the product dataset.',
+  inputSchema: z.object({
+    shoeSize: z.string().describe('The shoe size to check for in the product dataset.'),
+  }),
+  outputSchema: z.string().describe('A JSON string of products matching the shoe size, or an empty array if none are found.'),
+},
+async (input) => {
+  // Use curl to fetch the JSON data
+  const curlCommand = `curl -s https://cdn.cillers.com/google-region-launch-datasets/fw_products_dataset.json`;
+  const rawJson = execSync(curlCommand, { encoding: 'utf-8', maxBuffer: 1024 * 1024 * 100 }); // Up to 100MB
+
+  const products = JSON.parse(rawJson) as any[];
 
   const availableProducts = products.filter(product => product.size === input.shoeSize);
   return JSON.stringify(availableProducts);
